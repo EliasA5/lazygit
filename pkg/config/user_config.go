@@ -556,6 +556,9 @@ type OSConfig struct {
 	// CopyToClipboardCmd is the command for copying to clipboard.
 	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-clipboard
 	CopyToClipboardCmd string `yaml:"copyToClipboardCmd,omitempty"`
+
+	// CopyWithOsc52 is the command for copying to clipboard using OSC52.\n
+	CopyWithOsc52 string `yaml:"copyWithOsc52,omitempty"`
 }
 
 type CustomCommandAfterHook struct {

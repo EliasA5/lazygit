@@ -744,6 +744,10 @@
         "copyToClipboardCmd": {
           "type": "string",
           "description": "CopyToClipboardCmd is the command for copying to clipboard.\nSee https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-clipboard"
+        },
+        "copyWithOsc52": {
+          "type": "string",
+          "description": "CopyWithOsc52 is the command for copying to clipboard using OSC52.\n"
         }
       },
       "additionalProperties": false,

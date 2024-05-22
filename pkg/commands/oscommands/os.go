@@ -17,6 +17,7 @@ import (
 	"github.com/jesseduffield/lazygit/pkg/common"
 	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/aymanbagabas/go-osc52/v2"
 )
 
 // OSCommand holds all the os commands
@@ -297,6 +298,13 @@ func (c *OSCommand) CopyToClipboard(str string) error {
 			"text": c.Cmd.Quote(str),
 		})
 		return c.Cmd.NewShell(cmdStr).Run()
+	}
+	if c.UserConfig.OS.CopyWithOsc52 == "tmux" {
+		_, err := osc52.New(str).Tmux().WriteTo(os.Stdout)
+		return err
+	} else if c.UserConfig.OS.CopyWithOsc52 != "" {
+		_, err := osc52.New(str).WriteTo(os.Stdout)
+		return err
 	}
 
 	return clipboard.WriteAll(str)
